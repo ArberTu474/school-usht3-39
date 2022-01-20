@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap");
+
+:root {
+  --clr-primary-color: #b6f396;
+  --clr-green-color: #5eaa35;
+  --clr-red-color: #ff4a4a;
+  --clr-primary-color-hover: #a6e087;
+  --clr-primary-color-nav: #d9ecce;
+  --clr-primary-color-nav-icons: #3f443c;
+  --clr-primary-color-nav-icons-2: #20281f;
+  --clr-primary-color-light: #eaf5df;
+  --clr-primary-color-dark: #042100;
+
+  --clr-bg: #f1f8ed;
+  --clr-font: #020e00;
+  --clr-font-description: #535353;
+  --clr-font-2: #052501;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  box-sizing: border-box;
+  color: var(--clr-font);
+  text-align: center;
+  outline: transparent;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+}
+/* Remove arrow from numeric input fiels */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.material-icons,
+.material-icons-outlined {
+  margin-right: 5px;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: var(--clr-primary-color);
+  padding: 16px;
+  border-radius: 16px;
+  display: inline-block;
+  margin: 0.5em 0;
+  transition: background-color 300ms;
+}
+
+.button:hover {
+  background-color: var(--clr-primary-color-hover);
+}
+
+.align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+}
+
+.reset {
+  font-size: 0.9em;
+  color: var(--clr-primary-color-dark);
+  transition: text-decoration 300ms;
+}
+
+.reset:hover {
+  text-decoration: underline;
+}
+
+.input {
+  margin: 0.5em 0;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--clr-primary-color-light);
+  border: solid 2px var(--clr-primary-color-nav-icons-2);
+  color: var(--clr-font-2);
+}
+
+.description {
+  color: var(--clr-font-description);
+  font-weight: 400;
+  font-size: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+.highlight {
+  color: var(--clr-font-description);
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.highlight-line {
+  color: var(--clr-red-color);
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: line-through;
+  font-size: 1em;
+}
+
+.highlight-discount {
+  color: var(--clr-green-color);
+  font-weight: 700;
+  font-size: 1em;
+}
+
+body {
+  background-color: var(--clr-bg);
+}
+
+nav {
+  background-color: var(--clr-primary-color-nav);
+  position: fixed;
+  top: 1;
+  width: 100%;
+  margin-top: -5em;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.9rem;
+  color: var(--clr-primary-color-nav-icons);
+}
+
+.main {
+  margin: 5em 2em 2em 2em;
+}
+
+.main-title {
+  font-weight: 600;
+  color: var(--clr-primary-color-nav-icons);
+}
+
+.nav-icons {
+  font-size: 50px !important;
+}
+
+@media screen and (max-width: 600px) {
+  .input {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .main-title {
+    font-size: 1.4rem;
+  }
+
+  .nav-icons {
+    font-size: 40px !important;
+  }
+
+  .nav-container {
+    padding: 0.5em;
+  }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=Ushtrimi 3, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <!--Colored navBar-->
+    <meta name="theme-color" content="#d9ecce" />
+    <meta name="msapplication-navbutton-color" content="#d9ecce" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>Ushtrimi 3/39 TIK bazë</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <span
+          class="nav-icons material-icons-outlined"
+          style="color: var(--clr-primary-color-nav-icons)"
+        >
+          menu
+        </span>
+        <h1 class="title">Shopping</h1>
+        <span
+          class="nav-icons material-icons-outlined"
+          style="color: var(--clr-primary-color-nav-icons)"
+        >
+          person_outline
+        </span>
+      </div>
+    </nav>
+
+    <section class="main">
+      <p class="main-title">Vendosni çmimin e produktit</p>
+
+      <input type="number" class="input" id="cmimi" /><br />
+      <div class="button" onclick="llogaritCmimin()">
+        <div class="align">
+          <span class="material-icons-outlined"> add_shopping_cart </span>
+          <button type="button">Shtoni në shportë</button>
+        </div>
+      </div>
+
+      <p class="description" id="cmimiLlogaritur"></p>
+
+      <div class="button" onclick="llogaritUljen()">
+        <div class="align">
+          <span class="material-icons-outlined"> done </span>
+          <button>Llogarisni Uljen</button>
+        </div>
+      </div>
+
+      <p class="description" id="cmimiUlur"></p>
+      <button class="reset" onclick="reset()">Reset</button>
+    </section>
+  </body>
+
+  <script>
+    let nrBlerjeve = 0;
+    let lekHarxhuar = 0;
+    let lekTotal;
+
+    const input = document.querySelector("#cmimi");
+    let inputCmimiLlogaritur = document.querySelector("#cmimiLlogaritur");
+    let inputCmimiUlur = document.querySelector("#cmimiUlur");
+
+    input.select();
+
+    function llogaritCmimin() {
+      lekTotal = parseInt(input.value);
+      if (input.value <= 0 || input.value == null || input.value == "") {
+        inputCmimiLlogaritur.innerHTML = `Ju lutem vendosni një vlerë më të madhe se <span class="highlight">0</span>`;
+      } else {
+        lekHarxhuar = lekHarxhuar + lekTotal;
+        nrBlerjeve++;
+        inputCmimiLlogaritur.innerHTML = `Ju keni harxhuar: <span class="highlight">${lekHarxhuar} </span>lekë`;
+        input.value = "";
+      }
+    }
+
+    function llogaritUljen() {
+      if (lekHarxhuar > 500 && nrBlerjeve >= 2) {
+        let cmimUlje = lekHarxhuar * 0.7;
+        inputCmimiUlur.innerHTML = `Ju përfituat një ulje prej <span class="highlight">30%</span> sepse ju keni harxhuar <span class="highlight-line">${lekHarxhuar} lekë</span>, por do të paguani <span class="highlight-discount">${cmimUlje} lekë</span>.`;
+      } else if (nrBlerjeve < 2) {
+        inputCmimiUlur.innerHTML =
+          "Ju duhet të kryeni më shumë se një blerje që të përfitoni një ulje.";
+      } else {
+        inputCmimiUlur.innerHTML = `Ju duhet të harxhoni më shumë se <span class="highlight">500 lekë</span> që të përfitoni një ulje.`;
+      }
+    }
+
+    function reset() {
+      location.reload();
+    }
+  </script>
+</html>
